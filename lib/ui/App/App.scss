@@ -1,0 +1,13 @@
+@import '~bootstrap/scss/bootstrap';
+
+.d71a {
+  footer {
+    margin-top: 24px;
+  }
+
+  @include media-breakpoint-up(sm) {
+    footer {
+      margin-top: 96px;
+    }
+  }
+}

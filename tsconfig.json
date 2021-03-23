@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "baseUrl": "./lib",
+    "paths": {
+      "~*": ["./*"]
+    }
+  },
+  "include": ["lib/**/*"]
+}
