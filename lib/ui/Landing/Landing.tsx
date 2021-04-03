@@ -1,15 +1,22 @@
-import * as React from 'react'
 import classnames from 'classnames'
+import * as React from 'react'
+import { Link } from 'react-router-dom'
+
 import './Landing.scss'
 
 const Landing = () => (
   <div className="b4bd container">
-    <h1 className="display-1">Ann Niou is a product designer at Facebook.</h1>
+    <h1 className="display-1">Ann Niou.</h1>
+    <h4 className="display-4">
+      Currently a product designer at Facebook. Previously at IBM Garage for
+      Cloud.
+    </h4>
     <Row>
       <Description
         heading="In rutrum"
         lead="Enim et maximus malesuada, sem lectus suscipit ante, vel lacinia risus turpis nec nisl."
         body="Donec blandit in velit vestibulum accumsan. Donec condimentum diam eu augue rutrum, eget pretium magna pulvinar. Sed vestibulum maximus velit non volutpat. Curabitur malesuada et dui vitae maximus."
+        link="/project-example"
       />
       <img className="img-fluid" src="https://via.placeholder.com/800" />
     </Row>
@@ -32,21 +39,34 @@ const Landing = () => (
   </div>
 )
 
-const Row = ({ children, reverse }) => (
-  <div
-    className={classnames('row', 'align-items-center', reverse && 'reverse')}
-  >
-    <div className="col-12 col-sm-6">{children[0]}</div>
-    <div className="col-12 col-sm-6">{children[1]}</div>
-  </div>
-)
+const Row = (props) => {
+  const { children, className, reverse } = props
+  return (
+    <div
+      className={classnames(
+        'row',
+        'align-items-center',
+        reverse && 'reverse',
+        className
+      )}
+    >
+      <div className="col-12 col-sm-6">{children[0]}</div>
+      <div className="col-12 col-sm-6">{children[1]}</div>
+    </div>
+  )
+}
 
-const Description = ({ heading, lead, body }) => (
-  <div>
-    <h3 className="display-3">{heading}</h3>
-    {lead && <p className="lead">{lead}</p>}
-    <p>{body}</p>
-  </div>
-)
+const Description = (props) => {
+  const { heading, lead, body, link } = props
+
+  return (
+    <div>
+      <header className="display-4">{heading}</header>
+      {lead && <p className="lead">{lead}</p>}
+      <p>{body}</p>
+      {link && <Link to={link}>See more</Link>}
+    </div>
+  )
+}
 
 export default Landing

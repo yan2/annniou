@@ -1,13 +1,33 @@
 @import '~bootstrap/scss/bootstrap';
 
 .d71a {
+  /* Base. */
+  .display-sm {
+    font-size: 1.2rem;
+  }
+
+  /* App. */
+  nav {
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+  }
+
   footer {
-    margin-top: 24px;
+    padding-bottom: 6rem;
+    padding-top: 6rem;
   }
 
   @include media-breakpoint-up(sm) {
+    nav {
+      margin-bottom: 6rem;
+      margin-top: 6rem;
+      a {
+        color: $black;
+      }
+    }
+
     footer {
-      margin-top: 96px;
+      margin-top: 6rem;
     }
   }
 }
